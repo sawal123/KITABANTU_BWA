@@ -41,6 +41,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('fundraiser', FundraiserController::class)
             ->middleware('role:owner');
 
+        Route::get('fundraiser', [FundraiserController::class, 'index'])->name('fundraiser.index');
+
         Route::resource('fundraising_withdrawals', FundraisingWithdrawalsController::class)
             ->middleware('role:owner|fundraiser');
 
